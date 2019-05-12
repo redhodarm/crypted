@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.awt.*;
 /**
  *
  * @author L'empereur Redho
@@ -26,43 +26,49 @@ public class mainWindows extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
         switchType = new javax.swing.ButtonGroup();
         switchMethod = new javax.swing.ButtonGroup();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         bg = new javax.swing.JPanel();
         leftPanel = new javax.swing.JPanel();
         label = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        aesSelect = new javax.swing.JRadioButton();
+        desSelect = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         mainPanel = new javax.swing.JPanel();
+        encryptPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jTextField3 = new javax.swing.JTextField();
+        plainText = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        encryptKeyText = new javax.swing.JTextField();
+        encryptButton = new javax.swing.JButton();
+        encryptedText = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        decryptPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        cipherText = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        decryptKeyText = new javax.swing.JTextField();
+        decryptButton = new javax.swing.JButton();
+        resultText = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        rbtEncryptSelect = new javax.swing.JRadioButton();
+        rbtDecryptSelect = new javax.swing.JRadioButton();
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 413, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jToggleButton1.setText("jToggleButton1");
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Key");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -78,25 +84,26 @@ public class mainWindows extends javax.swing.JFrame {
         label.setForeground(new java.awt.Color(255, 255, 255));
         label.setText("Choose Method");
 
-        jRadioButton1.setBackground(new java.awt.Color(102, 102, 102));
-        switchMethod.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("AES - 256");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        aesSelect.setBackground(new java.awt.Color(102, 102, 102));
+        switchMethod.add(aesSelect);
+        aesSelect.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        aesSelect.setForeground(new java.awt.Color(255, 255, 255));
+        aesSelect.setSelected(true);
+        aesSelect.setText("AES - 256");
+        aesSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                aesSelectActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setBackground(new java.awt.Color(102, 102, 102));
-        switchMethod.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Triple DES");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        desSelect.setBackground(new java.awt.Color(102, 102, 102));
+        switchMethod.add(desSelect);
+        desSelect.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        desSelect.setForeground(new java.awt.Color(255, 255, 255));
+        desSelect.setText("Triple DES");
+        desSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                desSelectActionPerformed(evt);
             }
         });
 
@@ -119,15 +126,15 @@ public class mainWindows extends javax.swing.JFrame {
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
+                    .addComponent(aesSelect)
+                    .addComponent(desSelect)
                     .addComponent(jRadioButton3)
                     .addComponent(jRadioButton4)
                     .addComponent(label))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        leftPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4});
+        leftPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {aesSelect, desSelect, jRadioButton3, jRadioButton4});
 
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,60 +142,50 @@ public class mainWindows extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(label)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(aesSelect)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4});
+        leftPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {aesSelect, desSelect, jRadioButton3, jRadioButton4});
 
         mainPanel.setBackground(new java.awt.Color(51, 51, 51));
+        mainPanel.setLayout(new java.awt.CardLayout());
+
+        encryptPanel.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Plain Text");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        plainText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        plainText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                plainTextActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Key");
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Key");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        encryptKeyText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Encrypt!");
+        encryptButton.setBackground(new java.awt.Color(0, 0, 0));
+        encryptButton.setForeground(new java.awt.Color(255, 255, 255));
+        encryptButton.setText("Encrypt!");
 
-        switchType.add(jRadioButton5);
-        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton5.setText("Encrypt");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        encryptedText.setEditable(false);
+        encryptedText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        encryptedText.setText("-- Sample --");
+        encryptedText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
-
-        switchType.add(jRadioButton6);
-        jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton6.setText("Decrypyt");
-
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField3.setText("-- Sample --");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                encryptedTextActionPerformed(evt);
             }
         });
 
@@ -196,68 +193,170 @@ public class mainWindows extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cipher Text");
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mainPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addComponent(jRadioButton5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jRadioButton6)
-                                    .addGap(240, 240, 240))
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField2)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jButton1)
-                                        .addComponent(jLabel3))
-                                    .addGap(0, 0, Short.MAX_VALUE))))
-                        .addComponent(jSeparator1)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(0, 0, Short.MAX_VALUE)))))
-                    .addContainerGap()))
+        javax.swing.GroupLayout encryptPanelLayout = new javax.swing.GroupLayout(encryptPanel);
+        encryptPanel.setLayout(encryptPanelLayout);
+        encryptPanelLayout.setHorizontalGroup(
+            encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(encryptPanelLayout.createSequentialGroup()
+                .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encryptPanelLayout.createSequentialGroup()
+                        .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(encryptPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2))
+                            .addGroup(encryptPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(encryptButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(encryptPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(encryptedText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(plainText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(encryptKeyText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1)
+                            .addGroup(encryptPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+            .addGroup(encryptPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(302, Short.MAX_VALUE))
         );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
-            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mainPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton5)
-                        .addComponent(jRadioButton6))
-                    .addGap(23, 23, 23)
-                    .addComponent(jLabel2)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel3)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jButton1)
-                    .addGap(18, 18, 18)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel4)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(85, Short.MAX_VALUE)))
+        encryptPanelLayout.setVerticalGroup(
+            encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, encryptPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(encryptKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(encryptButton)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(encryptedText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        mainPanel.add(encryptPanel, "encryptPanel");
+
+        decryptPanel.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Encrypted Text");
+
+        cipherText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cipherText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cipherTextActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Key");
+
+        decryptKeyText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        decryptButton.setBackground(new java.awt.Color(0, 0, 0));
+        decryptButton.setForeground(new java.awt.Color(255, 255, 255));
+        decryptButton.setText("Decrypt!");
+
+        resultText.setEditable(false);
+        resultText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        resultText.setText("-- Sample --");
+        resultText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultTextActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Plain Text");
+
+        javax.swing.GroupLayout decryptPanelLayout = new javax.swing.GroupLayout(decryptPanel);
+        decryptPanel.setLayout(decryptPanelLayout);
+        decryptPanelLayout.setHorizontalGroup(
+            decryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(decryptPanelLayout.createSequentialGroup()
+                .addGroup(decryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(decryptPanelLayout.createSequentialGroup()
+                        .addGroup(decryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(decryptPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel6))
+                            .addGroup(decryptPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(decryptButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(decryptPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(decryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resultText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cipherText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(decryptKeyText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator2)
+                            .addGroup(decryptPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+            .addGroup(decryptPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(314, Short.MAX_VALUE))
+        );
+        decryptPanelLayout.setVerticalGroup(
+            decryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decryptPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(decryptKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(decryptButton)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resultText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(decryptPanel, "decryptPanel");
+
+        switchType.add(rbtEncryptSelect);
+        rbtEncryptSelect.setForeground(new java.awt.Color(255, 255, 255));
+        rbtEncryptSelect.setSelected(true);
+        rbtEncryptSelect.setText("Encrypt");
+        rbtEncryptSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtEncryptSelectActionPerformed(evt);
+            }
+        });
+
+        switchType.add(rbtDecryptSelect);
+        rbtDecryptSelect.setForeground(new java.awt.Color(255, 255, 255));
+        rbtDecryptSelect.setText("Decrypt");
+        rbtDecryptSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtDecryptSelectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -265,56 +364,71 @@ public class mainWindows extends javax.swing.JFrame {
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
                 .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(408, Short.MAX_VALUE))
-            .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                    .addGap(208, 208, 208)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(rbtEncryptSelect)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtDecryptSelect)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))
+                .addContainerGap())
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(bgLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtEncryptSelect)
+                    .addComponent(rbtDecryptSelect))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void desSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desSelectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_desSelectActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void aesSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aesSelectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_aesSelectActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void rbtDecryptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtDecryptSelectActionPerformed
+        CardLayout main = (CardLayout)mainPanel.getLayout();
+        main.show(mainPanel, "decryptPanel");
+    }//GEN-LAST:event_rbtDecryptSelectActionPerformed
+
+    private void rbtEncryptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtEncryptSelectActionPerformed
+        CardLayout main = (CardLayout)mainPanel.getLayout();
+        main.show(mainPanel, "encryptPanel");
+    }//GEN-LAST:event_rbtEncryptSelectActionPerformed
+
+    private void resultTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultTextActionPerformed
+
+    private void cipherTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cipherTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cipherTextActionPerformed
+
+    private void encryptedTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptedTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_encryptedTextActionPerformed
+
+    private void plainTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plainTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_plainTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,26 +466,36 @@ public class mainWindows extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton aesSelect;
     private javax.swing.JPanel bg;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField cipherText;
+    private javax.swing.JButton decryptButton;
+    private javax.swing.JTextField decryptKeyText;
+    private javax.swing.JPanel decryptPanel;
+    private javax.swing.JRadioButton desSelect;
+    private javax.swing.JButton encryptButton;
+    private javax.swing.JTextField encryptKeyText;
+    private javax.swing.JPanel encryptPanel;
+    private javax.swing.JTextField encryptedText;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel label;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JTextField plainText;
+    private javax.swing.JRadioButton rbtDecryptSelect;
+    private javax.swing.JRadioButton rbtEncryptSelect;
+    private javax.swing.JTextField resultText;
     private javax.swing.ButtonGroup switchMethod;
     private javax.swing.ButtonGroup switchType;
     // End of variables declaration//GEN-END:variables
