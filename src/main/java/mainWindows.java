@@ -44,8 +44,6 @@ public class mainWindows extends javax.swing.JFrame {
         label = new javax.swing.JLabel();
         aesSelect = new javax.swing.JRadioButton();
         desSelect = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         mainPanel = new javax.swing.JPanel();
         encryptPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -116,18 +114,6 @@ public class mainWindows extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton3.setBackground(new java.awt.Color(102, 102, 102));
-        switchMethod.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("jRadioButton1");
-
-        jRadioButton4.setBackground(new java.awt.Color(102, 102, 102));
-        switchMethod.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton4.setText("jRadioButton1");
-
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
@@ -137,13 +123,11 @@ public class mainWindows extends javax.swing.JFrame {
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(aesSelect)
                     .addComponent(desSelect)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4)
                     .addComponent(label))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        leftPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {aesSelect, desSelect, jRadioButton3, jRadioButton4});
+        leftPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {aesSelect, desSelect});
 
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,14 +138,10 @@ public class mainWindows extends javax.swing.JFrame {
                 .addComponent(aesSelect)
                 .addGap(18, 18, 18)
                 .addComponent(desSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {aesSelect, desSelect, jRadioButton3, jRadioButton4});
+        leftPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {aesSelect, desSelect});
 
         mainPanel.setBackground(new java.awt.Color(51, 51, 51));
         mainPanel.setLayout(new java.awt.CardLayout());
@@ -510,8 +490,6 @@ public class mainWindows extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
