@@ -3,18 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import crypted.Encrypter;
 import java.awt.*;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author L'empereur Redho
  */
 public class mainWindows extends javax.swing.JFrame {
 
+    private final Encrypter encrypter = new Encrypter();
     /**
      * Creates new form mainWindows
      */
     public mainWindows() {
         initComponents();
+        encrypter.setMethod(Encrypter.Methods.AES_128);
+        encrypter.setMode(Encrypter.Modes.ENCRYPT);
     }
 
     /**
@@ -179,6 +188,11 @@ public class mainWindows extends javax.swing.JFrame {
         encryptButton.setBackground(new java.awt.Color(0, 0, 0));
         encryptButton.setForeground(new java.awt.Color(255, 255, 255));
         encryptButton.setText("Encrypt!");
+        encryptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                encryptButtonActionPerformed(evt);
+            }
+        });
 
         encryptedText.setEditable(false);
         encryptedText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -259,6 +273,11 @@ public class mainWindows extends javax.swing.JFrame {
         decryptButton.setBackground(new java.awt.Color(0, 0, 0));
         decryptButton.setForeground(new java.awt.Color(255, 255, 255));
         decryptButton.setText("Decrypt!");
+        decryptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decryptButtonActionPerformed(evt);
+            }
+        });
 
         resultText.setEditable(false);
         resultText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -349,7 +368,7 @@ public class mainWindows extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(rbtDecryptSelect)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))
+                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         bgLayout.setVerticalGroup(
@@ -371,11 +390,13 @@ public class mainWindows extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void desSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desSelectActionPerformed
-        // TODO add your handling code here:
+        encrypter.setMethod(Encrypter.Methods.TRIPLE_DES);
+        System.out.println("Set to Triple DES");
     }//GEN-LAST:event_desSelectActionPerformed
 
     private void aesSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aesSelectActionPerformed
-        // TODO add your handling code here:
+        encrypter.setMethod(Encrypter.Methods.AES_128);
+        System.out.println("Set to AES");
     }//GEN-LAST:event_aesSelectActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -385,11 +406,15 @@ public class mainWindows extends javax.swing.JFrame {
     private void rbtDecryptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtDecryptSelectActionPerformed
         CardLayout main = (CardLayout)mainPanel.getLayout();
         main.show(mainPanel, "decryptPanel");
+        encrypter.setMode(Encrypter.Modes.DECRYPT);
+        System.out.println("Set to Decrypt");
     }//GEN-LAST:event_rbtDecryptSelectActionPerformed
 
     private void rbtEncryptSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtEncryptSelectActionPerformed
         CardLayout main = (CardLayout)mainPanel.getLayout();
         main.show(mainPanel, "encryptPanel");
+        encrypter.setMode(Encrypter.Modes.ENCRYPT);
+        System.out.println("Set to Encrypt");
     }//GEN-LAST:event_rbtEncryptSelectActionPerformed
 
     private void resultTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultTextActionPerformed
@@ -407,6 +432,29 @@ public class mainWindows extends javax.swing.JFrame {
     private void plainTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plainTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_plainTextActionPerformed
+
+    private void encryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptButtonActionPerformed
+        try {
+            String result = encrypter.run(plainText.getText(), encryptKeyText.getText());
+            System.out.println(result);
+            encryptedText.setText(result);
+        } catch (GeneralSecurityException | IOException ex) {
+            Logger.getLogger(mainWindows.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Whoops! There is an error. " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_encryptButtonActionPerformed
+
+    private void decryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptButtonActionPerformed
+        try {
+            String result = encrypter.run(cipherText.getText(), decryptKeyText.getText());
+            System.out.println(result);
+            resultText.setText(result);
+        } catch (GeneralSecurityException | IOException ex) {
+            Logger.getLogger(mainWindows.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Whoops! There is an error. " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_decryptButtonActionPerformed
 
     /**
      * @param args the command line arguments
