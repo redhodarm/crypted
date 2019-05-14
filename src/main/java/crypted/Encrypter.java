@@ -71,11 +71,14 @@ public class Encrypter {
     
     private String runBasedOnMode(Alice engine, String plainText, String key) throws GeneralSecurityException, IOException {
         byte[] result;
+        String returnValue;
         if (mode == Modes.ENCRYPT) {
-            result = engine.encrypt(Base64.getDecoder().decode(plainText), key.toCharArray());
+            result = engine.encrypt(plainText.getBytes(), key.toCharArray());
+            returnValue = Base64.getEncoder().encodeToString(result);
         } else {
             result = engine.decrypt(Base64.getDecoder().decode(plainText), key.toCharArray());
+            returnValue = new String(result);
         }
-        return Base64.getEncoder().encodeToString(result);
+        return returnValue;
     }
 }
