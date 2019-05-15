@@ -96,7 +96,7 @@ public class mainWindows extends javax.swing.JFrame {
         aesSelect.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         aesSelect.setForeground(new java.awt.Color(255, 255, 255));
         aesSelect.setSelected(true);
-        aesSelect.setText("AES - 256");
+        aesSelect.setText("AES - 128");
         aesSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aesSelectActionPerformed(evt);
